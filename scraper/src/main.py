@@ -15,8 +15,8 @@ if __name__ == '__main__':
     with open('page_configs.json', 'r') as f:
         page_configs_dict = json.load(f)
         page_configs = [
-            EqtWebTableScraperConfig.from_dict(name, config)
-            for name, config in page_configs_dict.items()
+            EqtWebTableScraperConfig.from_dict(config)
+            for config in page_configs_dict
         ]
 
     scrape_pages(app_config=app_config, page_configs=page_configs)

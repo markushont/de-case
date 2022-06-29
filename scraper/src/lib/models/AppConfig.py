@@ -1,9 +1,11 @@
+from operator import eq
 import os
 
 
 class AppConfig:
     def __init__(
         self,
+        eqt_base_url,
         gc_private_key_id,
         gc_private_key,
         gc_client_email,
@@ -12,6 +14,7 @@ class AppConfig:
         gc_project_id,
         target_bucket
     ):
+        self.eqt_base_url = eqt_base_url
         self.gc_private_key_id = gc_private_key_id
         self.gc_private_key = gc_private_key
         self.gc_client_email = gc_client_email
@@ -23,8 +26,9 @@ class AppConfig:
     @classmethod
     def from_environment(cls):
         return cls(
+            eqt_base_url=os.getenv('EQT_BASE_URL', 'https://eqtgroup.com'),
             gc_private_key_id=os.environ['GC_PRIVATE_KEY_ID'],
-            gc_private_key=os.environ['GC_PRIVATE_KEY'],
+            gc_private_key=os.environ['GC_PRIVATE_KEY'].replace('\\n', '\n'),
             gc_client_email=os.environ['GC_CLIENT_EMAIL'],
             gc_client_id=os.environ['GC_CLIENT_ID'],
             gc_token_uri=os.environ['GC_TOKEN_URI'],

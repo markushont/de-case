@@ -1,6 +1,7 @@
-{
-    "funds": {
-        "data_url": "https://eqtgroup.com/page-data/current-portfolio/funds/page-data.json",
+[
+    {
+        "table_name": "funds",
+        "page_data_path": "/page-data/current-portfolio/funds/page-data.json",
         "json_data_paths": [
             [ "result", "data", "activeFunds", "nodes"],
             [ "result", "data", "realizedFunds", "nodes"]
@@ -14,4 +15,4 @@
             "title"
         ]
     }
-}
+]

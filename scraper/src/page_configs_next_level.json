@@ -1,0 +1,76 @@
+[
+    {
+        "table_name": "funds",
+        "page_data_path": "/page-data/current-portfolio/funds/page-data.json",
+        "json_data_paths": [
+            [ "result", "data", "activeFunds", "nodes"],
+            [ "result", "data", "realizedFunds", "nodes"]
+        ],
+        "columns": [
+            "currency",
+            "launchDate",
+            "path",
+            "size",
+            "status",
+            "title"
+        ],
+        "follow_columns": [
+            {
+                "column": ["path"],
+                "table_name": "advisory_committee",
+                "json_data_paths": [
+                    [ "result", "data", "sanityFund", "advisoryCommittee"]
+                ],
+                "columns": [
+                    "isFreeText",
+                    "table_name",
+                    "title",
+                    "person"
+                ],
+                "follow_columns": [
+                    {
+                        "column": ["person", "path"],
+                        "table_name": "person",
+                        "json_data_paths": [
+                            ["result", "data", "sanityPerson"]
+                        ],
+                        "columns": [
+                            "_id",
+                            "title",
+                            "workTitle",
+                            "office"
+                        ]
+                    }
+                ]
+            },
+            {
+                "column": ["path"],
+                "table_name": "board_of_directors",
+                "json_data_paths": [
+                    [ "result", "data", "sanityFund", "board"]
+                ],
+                "columns": [
+                    "isFreeText",
+                    "table_name",
+                    "title",
+                    "person"
+                ],
+                "follow_columns": [
+                    {
+                        "column": ["person", "path"],
+                        "table_name": "person",
+                        "json_data_paths": [
+                            ["result", "data", "sanityPerson"]
+                        ],
+                        "columns": [
+                            "_id",
+                            "title",
+                            "workTitle",
+                            "office"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
