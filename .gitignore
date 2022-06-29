@@ -1,2 +1,4 @@
 python_env
 test_data
+__pycache__
+**/*.env
