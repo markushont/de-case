@@ -1,4 +1,4 @@
-create or replace external table `eqt-case-354813.eqt_case_raw.web_raw` (
+create or replace external table `eqt-case-354813.eqt_case_raw.web_funds` (
     currency string,
     launchDate string,
     path string,

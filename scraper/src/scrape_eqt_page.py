@@ -49,6 +49,15 @@ def _enrich_with_timestamp(table_rows):
         for r in table_rows
     ]
 
+def _stringify_json(table_rows):
+    # BigQuery doesn't handle object types :(
+    return [
+        {
+            k: str(v) if type(v) is list or type(v) is dict else v for k, v in row.items()
+        }
+        for row in table_rows
+    ]
+
 def _put_json_object(app_config: AppConfig, file_name, table_rows):
     client = CloudStorageClient(project_id=app_config.gc_project_id,
         service_account_creds_dict=CloudStorageClient.credentials_from_app_config(app_config))
@@ -71,9 +80,8 @@ def scrape_eqt_page(
         logger.info('Table is empty, exiting')
         return
 
+    table_rows = _stringify_json(table_rows)
     table_rows = _enrich_with_timestamp(table_rows)
 
     file_name = f"{page_config.table_name}/{datetime.utcnow().isoformat()}.json"
     _put_json_object(app_config, file_name, table_rows)
-
-

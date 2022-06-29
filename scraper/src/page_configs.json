@@ -14,5 +14,41 @@
             "status",
             "title"
         ]
+    },
+    {
+        "table_name": "current_portfolio",
+        "page_data_path": "/page-data/current-portfolio/page-data.json",
+        "json_data_paths": [
+            [ "result", "data", "allSanityCompanyPage", "nodes"]
+        ],
+        "columns": [
+            "_id",
+            "country",
+            "entryDate",
+            "fund",
+            "path",
+            "promotedSdg",
+            "sdg",
+            "sector",
+            "title",
+            "topic"
+        ]
+    },
+    {
+        "table_name": "divestments",
+        "page_data_path": "/page-data/current-portfolio/divestments/page-data.json",
+        "json_data_paths": [
+            [ "result", "data", "allSanityCompanyPage", "nodes"]
+        ],
+        "columns": [
+            "_id",
+            "country",
+            "entryDate",
+            "exitDate",
+            "fund",
+            "path",
+            "sector",
+            "title"
+        ]
     }
 ]

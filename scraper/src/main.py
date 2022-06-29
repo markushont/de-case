@@ -1,11 +1,16 @@
 import json
+from lib.logging import LoggerFactory
 from lib.models.AppConfig import AppConfig
 
 from lib.models.EqtWebTableScraperConfig import EqtWebTableScraperConfig
 from scrape_eqt_page import scrape_eqt_page
 
+logger = LoggerFactory.create_logger()
+
+
 def scrape_pages(app_config, page_configs):
     for config in page_configs:
+        logger.info(f"Handling table {config.table_name}")
         # TODO: handle exceptions and fail after all pages had time to finish
         scrape_eqt_page(app_config=app_config, page_config=config)
 
