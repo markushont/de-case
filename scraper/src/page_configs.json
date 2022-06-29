@@ -1,0 +1,19 @@
+{
+    "funds": {
+        "data_url": "https://eqtgroup.com/page-data/current-portfolio/funds/page-data.json",
+        "json_data_path": [
+            "result",
+            "data",
+            "activeFunds",
+            "nodes"
+        ],
+        "columns": [
+            "currency",
+            "launchDate",
+            "path",
+            "size",
+            "status",
+            "title"
+        ]
+    }
+}
