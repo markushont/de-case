@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: src_bq_raw
+    schema: eqt_case_raw
+    database: eqt-case-354813
+    tables:
+      - name: companies
+      - name: funding
+      - name: web_current_portfolio
+      - name: web_divestments
+      - name: web_funds
