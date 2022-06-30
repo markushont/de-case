@@ -25,6 +25,10 @@ class EqtWebTableScraperConfig:
 
     @classmethod
     def from_dict(cls, config_dict):
+        required_attrs = ['table_name', 'page_data_path', 'json_data_paths', 'columns']
+        if not all(a in config_dict for a in required_attrs):
+            raise ValueError('Missing page config')
+
         return cls(
             table_name=config_dict['table_name'],
             page_data_path=config_dict['page_data_path'],
