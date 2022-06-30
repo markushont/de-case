@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_funding
+    columns:
+      - name: funding_round_uuid
+        description: unique identifier for the funding round
+        tests:
+          - not_null
+          - unique
+      - name: company_uuid
+        description: company that was funded
+        tests:
+          - relationships:
+              to: ref('stg_companies')
+              field: uuid
+      - name: company_name
+      - name: investment_type
+      - name: announced_on
+      - name: raised_amount_usd
+      - name: investor_count
+      - name: investor_name

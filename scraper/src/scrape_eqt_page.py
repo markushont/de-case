@@ -50,7 +50,7 @@ def _enrich_with_timestamp(table_rows):
     ]
 
 def _stringify_json(table_rows):
-    # BigQuery doesn't handle object types :(
+    # BigQuery doesn't handle json types :(
     return [
         {
             k: str(v) if type(v) is list or type(v) is dict else v for k, v in row.items()

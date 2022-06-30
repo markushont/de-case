@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_companies
+    columns:
+      - name: uuid
+        description: unique identifier for company
+        tests:
+          - unique
+          - not_null
+      - name: company_name
+        description: Name of the company
+      - name: homepage_url
+      - name: country_code
+      - name: city
+      - name: short_description
+      - name: description
+      - name: founded_on
+      - name: last_funding_on
+      - name: funding_rounds
+      - name: funding_total_usd
+      - name: employee_count
