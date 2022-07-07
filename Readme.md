@@ -1,4 +1,4 @@
-# EQT Data Engineering Case 2022-06-29
+# Data Engineering Case 2022-06-29
 
 # Project Structure
 
